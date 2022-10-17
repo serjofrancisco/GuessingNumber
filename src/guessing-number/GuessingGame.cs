@@ -26,7 +26,12 @@ public class GuessNumber
     public void ChooseNumber()
     {
         bool isNumber = int.TryParse(Console.ReadLine(), out int number);
-        
+        while(!isNumber)
+        {
+            Console.WriteLine("Por favor, digite um número inteiro:");
+            isNumber = int.TryParse(Console.ReadLine(), out number);
+        }
+        userValue = number;
     }
     
     public void RandomNumber()
