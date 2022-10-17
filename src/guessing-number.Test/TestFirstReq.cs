@@ -38,23 +38,41 @@ public class TestFirstReq
     [InlineData(new object[] {new string[]{"10,", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyType(string[] entrys, int expected)
     {
-        var stringReader = new StringReader(string.Join(Environment.NewLine, entrys));
-        Console.SetIn(stringReader);
-        var game = new GuessNumber();
-        game.ChooseNumber();
-        var actual = game.userValue;
-        actual.Should().Be(expected);  
+       var guessNumber = new  GuessNumber();
+
+    foreach (string entry in entrys)
+    {
+      var stringReader = new StringReader(entry);
+      Console.SetIn(stringReader);
+    }
+
+   
+    guessNumber.ChooseNumber();
+
+    var actual = guessNumber.userValue;
+
+
+    actual.Should().Be(expected);
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e garantir que está entre -100 e 100!")]
     [InlineData(new object[] {new string[]{"1000", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyRange(string[] entrys, int expected)
     {
-        var stringReader = new StringReader(string.Join(Environment.NewLine, entrys));
-        Console.SetIn(stringReader);
-        var game = new GuessNumber();
-        game.ChooseNumber();
-        var actual = game.userValue;
-        actual.Should().Be(expected);  
+         var guessNumber = new  GuessNumber();
+
+    foreach (string entry in entrys)
+    {
+      var stringReader = new StringReader(entry);
+      Console.SetIn(stringReader);
+    }
+
+   
+    guessNumber.ChooseNumber();
+
+    var actual = guessNumber.userValue;
+
+
+    actual.Should().Be(expected);
     }    
 }
