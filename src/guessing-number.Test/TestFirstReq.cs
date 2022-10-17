@@ -50,6 +50,11 @@ public class TestFirstReq
     [InlineData(new object[] {new string[]{"1000", "10"}, 10})]
     public void TestReceiveUserInputAndVerifyRange(string[] entrys, int expected)
     {
-        throw new NotImplementedException();
+        var stringReader = new StringReader(string.Join(Environment.NewLine, entrys));
+        Console.SetIn(stringReader);
+        var game = new GuessNumber();
+        game.ChooseNumber();
+        var actual = game.userValue;
+        actual.Should().Be(expected);  
     }    
 }
