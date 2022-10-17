@@ -14,15 +14,17 @@ public class TestThirdReq
     [InlineData(new object[] {new string[]{"10"}, 10})]
     public void TestFullFlow(string[] entrys, int mockValue)
     {
-        var stringReader = new StringReader(string.Join(Environment.NewLine, entrys));
-        Console.SetIn(stringReader);
+        var guessNumber = new GuessNumber();
         var stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
-        var game = new GuessNumber();
-        game.RandomNumber();
-        game.randomValue = mockValue;
-        game.AnalyzePlay();
-        var actual = stringWriter.ToString().Split(Environment.NewLine);
-        actual.Should().BeEquivalentTo(new string[]{"---Bem-vindo ao ...---", "Para começar...", "Tente um número MENOR", "Tente um número MAIOR", "ACERTOU!"});
+        foreach (string entry in entrys)
+        {
+            var stringReader = new StringReader(entry);
+            Console.SetIn(stringReader);
+        }
+        guessNumber.randomValue = mockValue;
+        guessNumber.AnalyzePlay();
+        var actual = stringWriter.ToString().Trim();
+        actual.Should().Be("ACERTOU!");
     }
 }
