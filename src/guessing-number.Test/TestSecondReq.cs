@@ -14,26 +14,66 @@ public class TestSecondReq
     [InlineData(-100, 100)]
     public void TestRandomlyChooseANumber(int MinimumRange, int MaximumRange)
     {
-        throw new NotImplementedException();
+       var guessNumber = new GuessNumber();
+    guessNumber.RandomNumber();
+        var actual = guessNumber.randomValue;
+
+        actual.Should().BeInRange(MinimumRange, MaximumRange);
     }
 
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MENOR")]
     [InlineData(50, 0)]
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
-        throw new NotImplementedException();   
+        var guessNumber = new GuessNumber();
+
+        var stringWriter = new StringWriter();
+
+        Console.SetOut(stringWriter);
+
+        guessNumber.randomValue = mockValue;
+        guessNumber.userValue = entry;
+
+        guessNumber.AnalyzePlay();
+
+        string actual = stringWriter.ToString().Trim();
+        actual.Should().Be("Tente um número MAIOR");
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 60)]
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
-        throw new NotImplementedException();  
+         var guessNumber = new GuessNumber();
+
+        var stringWriter = new StringWriter();
+
+        Console.SetOut(stringWriter);
+
+        guessNumber.randomValue = mockValue;
+        guessNumber.userValue = entry;
+
+        guessNumber.AnalyzePlay();
+
+        string actual = stringWriter.ToString().Trim();
+        actual.Should().Be("Tente um número MENOR");
     }
     
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 50)]
     public void TestProgramComparisonValuesEqual(int mockValue, int entry)
     {
-        throw new NotImplementedException();
+         var guessNumber = new GuessNumber();
+
+        var stringWriter = new StringWriter();
+
+        Console.SetOut(stringWriter);
+
+        guessNumber.randomValue = mockValue;
+        guessNumber.userValue = entry;
+
+        guessNumber.AnalyzePlay();
+
+        string actual = stringWriter.ToString().Trim();
+        actual.Should().Be("ACERTOU!");
     }    
 }
