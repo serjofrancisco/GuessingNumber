@@ -13,7 +13,12 @@ public class TestFirstReq
     [InlineData(new object[] {new string[]{"---Bem-vindo ao ...---", "Para começar..."}})]
     public void TestPrintInitialMessage(string[] expected)
     {
-        throw new NotImplementedException();                                                   
+        var stringWriter = new StringWriter();
+        Console.SetOut(stringWriter);
+        var game = new GuessNumber();
+        game.Greet();
+        var actual = stringWriter.ToString().Split(Environment.NewLine);
+        actual.Should().BeEquivalentTo(expected);      
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e converter para int")]

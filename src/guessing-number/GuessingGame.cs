@@ -54,5 +54,6 @@ public class GuessNumber
                 ChooseNumber();
             }
         }
+        Console.WriteLine("ACERTOU!");
     }
 }
