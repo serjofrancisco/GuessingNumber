@@ -36,7 +36,7 @@ public class TestSecondReq
 
         guessNumber.AnalyzePlay();
 
-        string actual = stringWriter.ToString().Trim();
+        string actual = stringWriter.ToString();
         actual.Should().Be("Tente um número MAIOR");
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
@@ -54,7 +54,7 @@ public class TestSecondReq
 
         guessNumber.AnalyzePlay();
 
-        string actual = stringWriter.ToString().Trim();
+        string actual = stringWriter.ToString();
         actual.Should().Be("Tente um número MENOR");
     }
     
@@ -73,7 +73,7 @@ public class TestSecondReq
 
         guessNumber.AnalyzePlay();
 
-        string actual = stringWriter.ToString().Trim();
+        string actual = stringWriter.ToString();
         actual.Should().Be("ACERTOU!");
     }    
 }
