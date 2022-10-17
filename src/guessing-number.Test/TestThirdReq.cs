@@ -24,7 +24,6 @@ public class TestThirdReq
         }
         guessNumber.randomValue = mockValue;
         guessNumber.AnalyzePlay();
-        var actual = stringWriter.ToString().Trim();
-        actual.Should().Be("ACERTOU!");
-    }
+        stringWriter.ToString().Should().Contain("ACERTOU!");
+}
 }
