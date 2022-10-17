@@ -23,9 +23,15 @@ public class TestFirstReq
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e converter para int")]
     [InlineData("0", 0)]
+    [InlineData("4", 4)]
     public void TestReceiveUserInputAndConvert(string entry, int expected)
     {        
-        throw new NotImplementedException();
+        var stringReader = new StringReader(entry);
+        Console.SetIn(stringReader);
+        var game = new GuessNumber();
+        game.ChooseNumber();
+        var actual = game.userValue;
+        actual.Should().Be(expected);
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e garantir que é um numérico")]
