@@ -45,12 +45,11 @@ public class TestSecondReq
     [InlineData(50, 60)]
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
-        var guessNumber = new GuessNumber();
-
-       
         string actual;
-        guessNumber.randomValue = mockValue;
-        guessNumber.userValue = entry;
+           GuessNumber guessNumber = new() {
+            randomValue = mockValue,
+            userValue = entry
+        };
         
         using(var stringWriter = new StringWriter())
         {
