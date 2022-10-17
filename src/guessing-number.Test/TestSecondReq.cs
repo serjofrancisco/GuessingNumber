@@ -27,34 +27,38 @@ public class TestSecondReq
     {
         var guessNumber = new GuessNumber();
 
-        var stringWriter = new StringWriter();
-
-        Console.SetOut(stringWriter);
-
+       
+        string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
-
-        guessNumber.AnalyzePlay();
-
-        string actual = stringWriter.ToString().Trim();
+        
+        using(var stringWriter = new StringWriter())
+        {
+            Console.SetOut(stringWriter);
+            guessNumber.AnalyzePlay();
+            actual = stringWriter.ToString().Trim();
+        }
+      
         actual.Should().Be("Tente um número MAIOR");
     }
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
     [InlineData(50, 60)]
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
-         var guessNumber = new GuessNumber();
+        var guessNumber = new GuessNumber();
 
-        var stringWriter = new StringWriter();
-
-        Console.SetOut(stringWriter);
-
+       
+        string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
-
-        guessNumber.AnalyzePlay();
-
-        string actual = stringWriter.ToString().Trim();
+        
+        using(var stringWriter = new StringWriter())
+        {
+            Console.SetOut(stringWriter);
+            guessNumber.AnalyzePlay();
+            actual = stringWriter.ToString().Trim();
+        }
+      
         actual.Should().Be("Tente um número MENOR");
     }
     
@@ -64,16 +68,18 @@ public class TestSecondReq
     {
          var guessNumber = new GuessNumber();
 
-        var stringWriter = new StringWriter();
-
-        Console.SetOut(stringWriter);
-
+       
+        string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
-
-        guessNumber.AnalyzePlay();
-
-        string actual = stringWriter.ToString().Trim();
+        
+        using(var stringWriter = new StringWriter())
+        {
+            Console.SetOut(stringWriter);
+            guessNumber.AnalyzePlay();
+            actual = stringWriter.ToString().Trim();
+        }
+      
         actual.Should().Be("ACERTOU!");
     }    
 }
