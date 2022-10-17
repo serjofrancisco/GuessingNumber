@@ -10,15 +10,16 @@ namespace guessing_number.Test;
 public class TestFirstReq
 {
     [Theory(DisplayName = "Deve exibir mensagem inicial!")]
-    [InlineData(new object[] {new string[]{"---Bem-vindo ao ...---", "Para começar..."}})]
+    [InlineData(new object[] {new string[]{"---Bem-vindo ao Guessing Game---",
+      "Para começar, tente adivinhar o número que eu pensei, entre -100 e 100!"}})]
     public void TestPrintInitialMessage(string[] expected)
     {
         var stringWriter = new StringWriter();
         Console.SetOut(stringWriter);
         var game = new GuessNumber();
         game.Greet();
-        var actual = stringWriter.ToString().Split(Environment.NewLine);
-        actual.Should().BeEquivalentTo(expected);      
+        var actual = stringWriter.ToString().Trim().Split('\n');
+        actual.Should().Equal(expected);      
     }
 
     [Theory(DisplayName = "Deve receber a entrada do usuário e converter para int")]
