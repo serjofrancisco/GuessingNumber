@@ -23,7 +23,7 @@ public class TestSecondReq
     }
 
     [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MENOR")]
-    [InlineData(50, 0)]
+    [InlineData(50, 60)]
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
         var guessNumber = new GuessNumber();

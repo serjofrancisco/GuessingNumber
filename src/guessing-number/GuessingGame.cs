@@ -41,19 +41,17 @@ public class GuessNumber
     
     public void AnalyzePlay()
     {
-        while(userValue != randomValue)
-        {
-            if(userValue > randomValue)
-            {
-                Console.WriteLine("Tente um número MENOR");
-                ChooseNumber();
-            }
-            else
-            {
-                Console.WriteLine("Tente um número MAIOR");
-                ChooseNumber();
-            }
-        }
-        Console.WriteLine("ACERTOU!");
+       if(userValue > randomValue)
+       {
+           Console.WriteLine("Tente um número MENOR");
+       }
+       else if(userValue < randomValue)
+       {
+           Console.WriteLine("Tente um número MAIOR");
+       }
+       else
+       {
+           Console.WriteLine("ACERTOU!");
+       }
     }
 }
