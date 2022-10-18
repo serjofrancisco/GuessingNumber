@@ -27,11 +27,6 @@ public class TestSecondReq
     public void TestProgramComparisonValuesLess(int mockValue, int entry)
     {
         var guessNumber = new GuessNumber();
-
-       if(entry < mockValue)
-        {
-            throw new XunitException("Tente um número MAIOR");
-        }
         string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
@@ -50,11 +45,6 @@ public class TestSecondReq
     public void TestProgramComparisonValuesBigger(int mockValue, int entry)
     {
         var guessNumber = new GuessNumber();
-
-        if(entry > mockValue)
-        {
-            throw new XunitException("Tente um número MENOR");
-        }
         string actual;
         
         guessNumber.randomValue = mockValue;
@@ -75,13 +65,6 @@ public class TestSecondReq
     public void TestProgramComparisonValuesEqual(int mockValue, int entry)
     {
          var guessNumber = new GuessNumber();
-
-          if(entry != mockValue)
-        {
-            throw new XunitException("Numeros Diferentes");
-        }
-
-       
         string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
