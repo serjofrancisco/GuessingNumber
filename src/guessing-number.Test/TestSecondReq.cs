@@ -4,6 +4,7 @@ using System;
 using Moq;
 using guessing_number;
 using FluentAssertions;
+using Xunit.Sdk;
 
 namespace guessing_number.Test;
 
@@ -27,7 +28,10 @@ public class TestSecondReq
     {
         var guessNumber = new GuessNumber();
 
-       
+       if(entry < mockValue)
+        {
+            throw new XunitException("Tente um número MAIOR");
+        }
         string actual;
         guessNumber.randomValue = mockValue;
         guessNumber.userValue = entry;
@@ -47,7 +51,10 @@ public class TestSecondReq
     {
         var guessNumber = new GuessNumber();
 
-       
+        if(entry > mockValue)
+        {
+            throw new XunitException("Tente um número MENOR");
+        }
         string actual;
         
         guessNumber.randomValue = mockValue;
@@ -63,11 +70,16 @@ public class TestSecondReq
         actual.Should().Be("Tente um número MENOR");
     }
     
-    [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso MAIOR")]
+    [Theory(DisplayName = "Deve comparar a entrada do usuário em um caso IGUAL")]
     [InlineData(50, 50)]
     public void TestProgramComparisonValuesEqual(int mockValue, int entry)
     {
          var guessNumber = new GuessNumber();
+
+          if(entry != mockValue)
+        {
+            throw new XunitException("Numeros Diferentes");
+        }
 
        
         string actual;
