@@ -21,15 +21,15 @@ public class TestThirdReq
                 Console.SetOut(stringWriter);
                 Console.SetIn(stringReader);
 
-                var guessingNumber = new GuessNumber();
-                guessingNumber.randomValue = mockValue;
+                var guessNumber = new GuessNumber();
+                guessNumber.randomValue = mockValue;
 
                 do
                 {
-                    guessingNumber.ChooseNumber();
-                    guessingNumber.AnalyzePlay();
+                    guessNumber.ChooseNumber();
+                    guessNumber.AnalyzePlay();
                 }
-                while(guessingNumber.randomValue != guessingNumber.userValue);     
+                while(guessNumber.randomValue != guessNumber.userValue);     
 
                 var response = stringWriter.ToString().Trim().Split("\n");
                 response[^1].Should().Contain("ACERTOU!");
