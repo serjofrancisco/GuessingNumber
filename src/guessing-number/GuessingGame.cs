@@ -26,7 +26,7 @@ public class GuessNumber
     public void ChooseNumber()
     {
         bool isNumber = int.TryParse(Console.ReadLine(), out int number);
-        while(!isNumber)
+        while(!isNumber || !(number > -100 && number < 100))
         {
             Console.WriteLine("Por favor, digite um número inteiro:");
             isNumber = int.TryParse(Console.ReadLine(), out number);
