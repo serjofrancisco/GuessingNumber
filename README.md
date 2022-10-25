@@ -4,7 +4,7 @@
 
 ## 💻 Sobre o projeto
 
-Projeto de estudo da Aceleração em C# da Trybe
+Projeto de estudo da Aceleração em C# da Trybe, um joguinho de adivinhar o numero entre -100 e 100
 
 ---
 ## 🚀 Como executar o projeto
